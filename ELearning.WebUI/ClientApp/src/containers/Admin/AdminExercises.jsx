@@ -48,13 +48,12 @@ class AdminExercises extends Component {
                 <div className='searching'>
                     <div className='content'>
                         <SearchExercise
-                            onSelectValue={this.valueHandle}
-                            senddata={this.getData} />
+                            onSelectValue={this.valueHandle} />
                     </div>
                     <Button icon onClick={this.reverseState}><Icon name='delete' /></Button>
                 </div>
 
-                <div>
+                <div className='exerciseList'>
                     {this.state.showSelected ?
                         <div>
                             <DetailList

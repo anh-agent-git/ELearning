@@ -2,6 +2,8 @@
     box-sizing: inherit;
     display: flex;
     flex-direction: column;
+ 
+
   }
 
   .content {
@@ -14,4 +16,8 @@
 
 .searching {
     display: flex;
+}
+.exerciseList {
+    max-height: 700px;
+    overflow: auto;
 }
