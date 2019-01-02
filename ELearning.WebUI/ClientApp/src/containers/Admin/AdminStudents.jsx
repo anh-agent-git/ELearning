@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './AdminStudents.scss';
 import SearchStudent from '../../components/Modules/SearchStudent';
-import DetailList from '../../components/Modules/DeatilList';
+import DetailList from '../../components/Modules/DetailList';
 import axios from '../../axios';
 import { Button, Icon} from 'semantic-ui-react';
 import ModalAddStudent  from '../../components/Modules/ModalAddStudent';
@@ -60,6 +60,8 @@ class AdminStudents extends Component {
                     {this.state.showSelected ?
                         <div>
                             <DetailList
+                                visibledetail={true}
+                                visibledelete={true}
                                 key={this.state.selectedItem.id}
                                 id={this.state.selectedItem.id}
                                 title={this.state.selectedItem.name} />
@@ -67,6 +69,8 @@ class AdminStudents extends Component {
                         :
                         this.state.users.map((student) => {
                             return <DetailList
+                                visibledetail={true}
+                                visibledelete={true}
                                 key={student.id}
                                 id={student.id}
                                 title={student.name} />
