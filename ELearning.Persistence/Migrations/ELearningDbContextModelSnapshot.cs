@@ -27,7 +27,7 @@ namespace ELearning.Persistence.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("date");
+                        .HasColumnType("datetime");
 
                     b.Property<decimal?>("FinalGrade")
                         .ValueGeneratedOnAdd()
