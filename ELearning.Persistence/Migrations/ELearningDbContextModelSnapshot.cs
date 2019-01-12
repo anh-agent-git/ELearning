@@ -15,7 +15,7 @@ namespace ELearning.Persistence.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.0-rtm-35687")
+                .HasAnnotation("ProductVersion", "2.2.1-servicing-10028")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -216,6 +216,8 @@ namespace ELearning.Persistence.Migrations
                     b.Property<string>("Surname")
                         .IsRequired()
                         .HasMaxLength(50);
+
+                    b.Property<string>("Token");
 
                     b.HasKey("UserId");
 
