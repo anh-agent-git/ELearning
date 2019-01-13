@@ -127,22 +127,6 @@ namespace ELearning.Persistence.Migrations
                     b.ToTable("Groups");
                 });
 
-            modelBuilder.Entity("ELearning.Domain.Entities.Role", b =>
-                {
-                    b.Property<int>("RoleId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("RoleId")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(16);
-
-                    b.HasKey("RoleId");
-
-                    b.ToTable("Roles");
-                });
-
             modelBuilder.Entity("ELearning.Domain.Entities.Section", b =>
                 {
                     b.Property<int>("SectionId")
@@ -210,8 +194,9 @@ namespace ELearning.Persistence.Migrations
                     b.Property<string>("Password")
                         .IsRequired();
 
-                    b.Property<int>("RoleId")
-                        .HasColumnName("RoleId");
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasMaxLength(50);
 
                     b.Property<string>("Surname")
                         .IsRequired()
@@ -220,8 +205,6 @@ namespace ELearning.Persistence.Migrations
                     b.Property<string>("Token");
 
                     b.HasKey("UserId");
-
-                    b.HasIndex("RoleId");
 
                     b.ToTable("Users");
                 });
@@ -306,15 +289,6 @@ namespace ELearning.Persistence.Migrations
                         .WithMany("Sections")
                         .HasForeignKey("UserId")
                         .HasConstraintName("FK_Sections_Users")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("ELearning.Domain.Entities.User", b =>
-                {
-                    b.HasOne("ELearning.Domain.Entities.Role", "Role")
-                        .WithMany("Users")
-                        .HasForeignKey("RoleId")
-                        .HasConstraintName("FK_Users_Roles")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
